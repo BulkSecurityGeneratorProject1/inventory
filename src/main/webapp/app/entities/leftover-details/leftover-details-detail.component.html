@@ -1,0 +1,44 @@
+
+<div *ngIf="leftoverDetails">
+    <h2><span jhiTranslate="inventoryApp.leftoverDetails.detail.title">Leftover Details</span> {{leftoverDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.leftoverDetails.parentId">Parent Id</span></dt>
+        <dd>
+            <span>{{leftoverDetails.parentId}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.leftoverDetails.length">Length</span></dt>
+        <dd>
+            <span>{{leftoverDetails.length}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.leftoverDetails.breadth">Breadth</span></dt>
+        <dd>
+            <span>{{leftoverDetails.breadth}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.leftoverDetails.squareFeet">Square Feet</span></dt>
+        <dd>
+            <span>{{leftoverDetails.squareFeet}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.leftoverDetails.leftoverDetail">Leftover Detail</span></dt>
+        <dd>
+            <div *ngIf="leftoverDetails.leftoverDetail">
+                <a [routerLink]="['/product-details', leftoverDetails.leftoverDetail?.id]">{{leftoverDetails.leftoverDetail?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'leftover-details/'+ leftoverDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

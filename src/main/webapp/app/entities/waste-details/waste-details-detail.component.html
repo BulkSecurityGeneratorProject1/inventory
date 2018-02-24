@@ -1,0 +1,40 @@
+
+<div *ngIf="wasteDetails">
+    <h2><span jhiTranslate="inventoryApp.wasteDetails.detail.title">Waste Details</span> {{wasteDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.wasteDetails.length">Length</span></dt>
+        <dd>
+            <span>{{wasteDetails.length}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.wasteDetails.breadth">Breadth</span></dt>
+        <dd>
+            <span>{{wasteDetails.breadth}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.wasteDetails.squareFeet">Square Feet</span></dt>
+        <dd>
+            <span>{{wasteDetails.squareFeet}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.wasteDetails.wasteDetail">Waste Detail</span></dt>
+        <dd>
+            <div *ngIf="wasteDetails.wasteDetail">
+                <a [routerLink]="['/product-details', wasteDetails.wasteDetail?.id]">{{wasteDetails.wasteDetail?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'waste-details/'+ wasteDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

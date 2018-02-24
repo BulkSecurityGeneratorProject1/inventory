@@ -1,0 +1,44 @@
+
+<div *ngIf="productDetails">
+    <h2><span jhiTranslate="inventoryApp.productDetails.detail.title">Product Details</span> {{productDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.productDetails.length">Length</span></dt>
+        <dd>
+            <span>{{productDetails.length}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.productDetails.breadth">Breadth</span></dt>
+        <dd>
+            <span>{{productDetails.breadth}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.productDetails.squareFeet">Square Feet</span></dt>
+        <dd>
+            <span>{{productDetails.squareFeet}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.productDetails.sold">Sold</span></dt>
+        <dd>
+            <span>{{productDetails.sold}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.productDetails.productDetail">Product Detail</span></dt>
+        <dd>
+            <div *ngIf="productDetails.productDetail">
+                <a [routerLink]="['/product', productDetails.productDetail?.id]">{{productDetails.productDetail?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'product-details/'+ productDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

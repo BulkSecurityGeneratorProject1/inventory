@@ -1,0 +1,25 @@
+{
+    "inventoryApp": {
+        "wasteDetails" : {
+            "home": {
+                "title": "Waste Details",
+                "createLabel": "Create a new Waste Details",
+                "createOrEditLabel": "Create or edit a Waste Details",
+                "search": "Search for Waste Details"
+            },
+            "created": "A new Waste Details is created with identifier {{ param }}",
+            "updated": "A Waste Details is updated with identifier {{ param }}",
+            "deleted": "A Waste Details is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Waste Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Waste Details"
+            },
+            "length": "Length",
+            "breadth": "Breadth",
+            "squareFeet": "Square Feet",
+            "wasteDetail": "Waste Detail"
+        }
+    }
+}
